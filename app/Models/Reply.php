@@ -10,6 +10,16 @@ class Reply extends Model
 {
     use HasFactory;
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'body',
+        'thread_id',
+    ];
+
     public function thread(): BelongsTo
     {
         return $this->belongsTo(Thread::class);
