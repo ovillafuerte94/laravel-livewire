@@ -44,6 +44,11 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
+    public function avatar()
+    {
+        return 'https://gravatar.com/avatar/'. md5($this->email) . '?s=50';
+    }
+
     public function threads(): HasMany
     {
         return $this->hasMany(Thread::class);
