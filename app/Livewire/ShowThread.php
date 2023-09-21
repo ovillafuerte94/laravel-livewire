@@ -9,9 +9,9 @@ class ShowThread extends Component
 {
     public Thread $thread;
 
-    public string $body;
+    public string $body = '';
 
-    public function postReply(): void
+    public function postReply()
     {
         $this->validate(['body' => 'required']);
 
@@ -20,7 +20,7 @@ class ShowThread extends Component
             'body' => $this->body
         ]);
 
-        $this->body = '';
+        $this->reset('body');
     }
 
     public function render()
