@@ -29,8 +29,6 @@
 
     @foreach($replies as $reply)
         @livewire('show-reply', ['reply' => $reply], key('reply-'.$reply->id))
-
-        {{-- <livewire:show-reply :$reply :key="'reply-'.$reply->id" /> --}}
     @endforeach
 
     <form wire:submit.prevent="postReply" class="mb-4">
