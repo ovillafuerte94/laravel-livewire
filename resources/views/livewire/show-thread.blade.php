@@ -27,6 +27,12 @@
         </div>
     </div>
 
+    @foreach($replies as $reply)
+        @livewire('show-reply', ['reply' => $reply], key('reply-'.$reply->id))
+
+        {{-- <livewire:show-reply :$reply :key="'reply-'.$reply->id" /> --}}
+    @endforeach
+
     <form wire:submit.prevent="postReply" class="mb-4">
         <input type="text" placeholder="Write a reply..." class="bg-slate-800 border-0 rounded-md w-full text-white/60 text-xs"
             wire:model.defer="body">
