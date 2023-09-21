@@ -14,7 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', \App\Livewire\ShowThreads::class)->middleware(['auth'])->name('home');
+Route::get('/', \App\Livewire\ShowThreads::class)
+    ->middleware(['auth'])
+    ->name('home');
+
+Route::get('/thread/{thread}', \App\Livewire\ShowThread::class)
+    ->middleware(['auth'])
+    ->name('thread');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
