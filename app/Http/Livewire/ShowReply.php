@@ -12,8 +12,32 @@ class ShowReply extends Component
     public string $body = '';
 
     public bool $is_creating = false;
+    public bool $is_editing = false;
 
     protected $listeners = ['refresh' => '$refresh'];
+
+    public function updatedIsCreating()
+    {
+        $this->body = '';
+        $this->is_editing = false;
+    }
+
+    public function updatedIsEditing()
+    {
+        $this->body = $this->reply->body;
+        $this->is_creating = false;
+    }
+
+    public function updateReply()
+    {
+        $this->validate(['body' => 'required']);
+
+        $this->reply->update([
+            'body' => $this->body
+        ]);
+
+        $this->is_editing = false;
+    }
 
     public function postChild()
     {
