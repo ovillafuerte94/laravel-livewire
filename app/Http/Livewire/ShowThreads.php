@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\Thread;
@@ -32,6 +32,6 @@ class ShowThreads extends Component
         return view('livewire.show-threads', [
             'categories' => $categories,
             'threads' => $threads->get()
-        ])->layout('layouts.app');
+        ]);
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Http\Livewire;
 
 use App\Models\Reply;
 use Livewire\Component;
@@ -11,6 +11,6 @@ class ShowReply extends Component
 
     public function render()
     {
-        return view('livewire.show-reply')->layout('layouts.app');
+        return view('livewire.show-reply');
     }
 }

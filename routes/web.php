@@ -14,11 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', \App\Livewire\ShowThreads::class)
+Route::get('/', \App\Http\Livewire\ShowThreads::class)
     ->middleware(['auth'])
     ->name('home');
 
-Route::get('/thread/{thread}', \App\Livewire\ShowThread::class)
+Route::get('/thread/{thread}', \App\Http\Livewire\ShowThread::class)
     ->middleware(['auth'])
     ->name('thread');
 
