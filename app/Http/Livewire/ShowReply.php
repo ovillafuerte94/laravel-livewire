@@ -17,6 +17,10 @@ class ShowReply extends Component
 
     public function postChild()
     {
+        if ( ! is_null($this->reply->reply_id)) {
+            return;
+        }
+
         $this->validate(['body' => 'required']);
 
         auth()->user()->replies()->create([

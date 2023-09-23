@@ -18,7 +18,9 @@
                     </form>
                 @endif
                 <p class="mt-4 text-white/60 text-xs flex gap-2 justify-end">
-                    <a href="#" wire:click.prevent="$toggle('is_creating')" class="hover:text-white">Reply</a>
+                    @if (is_null($reply->reply_id))
+                        <a href="#" wire:click.prevent="$toggle('is_creating')" class="hover:text-white">Reply</a>
+                    @endif
                     <a href="" class="hover:text-white">Edit</a>
                 </p>
             </div>
