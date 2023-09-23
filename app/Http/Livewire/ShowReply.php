@@ -11,6 +11,8 @@ class ShowReply extends Component
 
     public string $body = '';
 
+    protected $listeners = ['refresh' => '$refresh'];
+
     public function postChild()
     {
         $this->validate(['body' => 'required']);
@@ -22,6 +24,7 @@ class ShowReply extends Component
         ]);
 
         $this->body = '';
+        $this->emitSelf('refresh');
     }
 
     public function render()
