@@ -11,12 +11,14 @@
                 <p class="text-white/60 text-xs">
                     {{ $reply->body }}
                 </p>
-                <form wire:submit.prevent="postChild" class="mt-4">
-                    <input type="text" placeholder="Write a reply..."
-                        class="bg-slate-800 border-1 border-slate-900 rounded-md w-full text-white/60 text-xs" wire:model.defer="body">
-                </form>
+                @if ($is_creating)
+                    <form wire:submit.prevent="postChild" class="mt-4">
+                        <input type="text" placeholder="Write a reply..."
+                            class="bg-slate-800 border-1 border-slate-900 rounded-md w-full text-white/60 text-xs" wire:model.defer="body">
+                    </form>
+                @endif
                 <p class="mt-4 text-white/60 text-xs flex gap-2 justify-end">
-                    <a href="" class="hover:text-white">Reply</a>
+                    <a href="#" wire:click.prevent="$toggle('is_creating')" class="hover:text-white">Reply</a>
                     <a href="" class="hover:text-white">Edit</a>
                 </p>
             </div>

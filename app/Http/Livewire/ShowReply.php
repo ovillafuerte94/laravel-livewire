@@ -11,6 +11,8 @@ class ShowReply extends Component
 
     public string $body = '';
 
+    public bool $is_creating = false;
+
     protected $listeners = ['refresh' => '$refresh'];
 
     public function postChild()
@@ -24,6 +26,7 @@ class ShowReply extends Component
         ]);
 
         $this->body = '';
+        $this->is_creating = false;
         $this->emitSelf('refresh');
     }
 
