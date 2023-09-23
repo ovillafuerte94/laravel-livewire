@@ -18,6 +18,7 @@ class Reply extends Model
     protected $fillable = [
         'body',
         'thread_id',
+        'reply_id',
     ];
 
     public function thread(): BelongsTo
