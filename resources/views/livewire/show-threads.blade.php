@@ -61,10 +61,12 @@
                                     </path>
                                 </svg>
                                 {{ $thread->replies_count }} replies
-                                |
-                                <a href="{{ route('threads.edit', $thread) }}" class="hover:text-white">
-                                    Edit
-                                </a>
+                                @can('update', $thread)
+                                    |
+                                    <a href="{{ route('threads.edit', $thread) }}" class="hover:text-white">
+                                        Edit
+                                    </a>
+                                @endcan
                             </span>
                         </p>
                     </div>
