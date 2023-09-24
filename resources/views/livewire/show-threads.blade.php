@@ -62,7 +62,7 @@
                                 </svg>
                                 {{ $thread->replies_count }} replies
                                 |
-                                <a href="" class="hover:text-white">
+                                <a href="{{ route('threads.edit', $thread) }}" class="hover:text-white">
                                     Edit
                                 </a>
                             </span>
